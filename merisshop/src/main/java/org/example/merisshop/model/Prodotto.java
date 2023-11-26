@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @Builder
@@ -30,4 +32,8 @@ public class Prodotto {
 
     @Column
     private double prezzo;
+
+    @ManyToMany(mappedBy = "prodotti")
+    private List<Ordine> ordine;
+
 }

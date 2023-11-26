@@ -21,9 +21,9 @@ public class Ordine {
     private Long ordineID;
 
     @ManyToMany
-    @JoinTable(name = "ordini_prodotti",
-            joinColumns = @JoinColumn(name = "ordini", referencedColumnName = "ordineID"),
-            inverseJoinColumns = @JoinColumn(name = "prodotti", referencedColumnName = "prodottoID"))
+    @JoinTable(name = "ordini-prodotti",
+            joinColumns = @JoinColumn(name = "ID Ordine", referencedColumnName = "ordineID"),
+            inverseJoinColumns = @JoinColumn(name = "ID Prodotto", referencedColumnName = "prodottoID"))
     private List<Prodotto> prodotti;
 
     @Column
@@ -31,4 +31,5 @@ public class Ordine {
 
     @Column
     private double totale;
+
 }
