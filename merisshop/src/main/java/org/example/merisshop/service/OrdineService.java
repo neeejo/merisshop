@@ -7,6 +7,8 @@ import org.example.merisshop.repository.ProdottoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrdineService {
     @Autowired
@@ -34,5 +36,7 @@ public class OrdineService {
     public Ordine update(Ordine ordine) {return ordineRepository.save(ordine);}
 
     public void delete(Long id) {ordineRepository.deleteById(id);}
+
+    //public Long ordersByTypes() {return null;}
 
 }
