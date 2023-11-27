@@ -122,9 +122,5 @@ public class OrdineService {
         }else {
             throw new RuntimeException("errore lista");
         }
-        /*Optional<Map.Entry<String, Long>> maxValue = sold.entrySet().stream()
-                .max(Comparator.comparing(Map.Entry::getValue));
-
-        return  maxValue.orElseThrow(()->new RuntimeException("lista vuota"));*/
     }
 }
