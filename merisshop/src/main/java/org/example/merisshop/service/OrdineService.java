@@ -89,7 +89,7 @@ public class OrdineService {
                 .filter(ordine -> ordine.getTotale() < amount)
                 .collect(Collectors.toList());
     }
-    public Map.Entry<String, Long> bestSeller() {
+    public HashMap<String,Long> bestSeller() {
         HashMap<String, Long> sold = new HashMap<>();
         List<Ordine> ordini = ordineRepository.findAll();
         List<Prodotto> prodsInOrdini = new ArrayList<>();
@@ -107,10 +107,24 @@ public class OrdineService {
                 sold.replace(p.getNome(),c);
             }
         }
-        System.out.println(sold);
-        Optional<Map.Entry<String, Long>> maxValue = sold.entrySet().stream()
+        Optional<Long> max = sold.values().stream().max(Long::compare);
+        HashMap<String,Long> bestSeller = new HashMap<>();
+        if(max.isPresent()) {
+            Long mValue = max.get();
+            List<String> bestKeys = sold.entrySet().stream()
+                    .filter(entry -> entry.getValue().equals(mValue))
+                    .map(Map.Entry::getKey)
+                    .collect(Collectors.toList());
+            for(String s : bestKeys) {
+                bestSeller.put(s,mValue);
+            }
+            return bestSeller;
+        }else {
+            throw new RuntimeException("errore lista");
+        }
+        /*Optional<Map.Entry<String, Long>> maxValue = sold.entrySet().stream()
                 .max(Comparator.comparing(Map.Entry::getValue));
 
-        return  maxValue.orElseThrow(()->new RuntimeException("lista vuota"));
+        return  maxValue.orElseThrow(()->new RuntimeException("lista vuota"));*/
     }
 }

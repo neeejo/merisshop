@@ -5,6 +5,7 @@ import org.example.merisshop.service.OrdineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,5 +27,5 @@ public class OrdineController {
     @GetMapping(value = "/lowerThen")
     public List<Ordine> lowerThen(@RequestParam Double amount) {return ordineService.lowerThen(amount);}
     @GetMapping(value = "/bestSeller")
-    public Map.Entry<String, Long> bestSeller() {return ordineService.bestSeller();}
+    public HashMap<String, Long> bestSeller() {return ordineService.bestSeller();}
 }
