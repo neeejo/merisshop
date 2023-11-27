@@ -18,10 +18,10 @@ public class Anagrafica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long anagraficaID;
+    private Long id;
 
     @OneToOne
-    @JoinColumn(name = "user" , referencedColumnName = "userID")
+    @JoinColumn(name = "user" , referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private User user;
 

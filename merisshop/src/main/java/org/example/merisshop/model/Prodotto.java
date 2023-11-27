@@ -1,5 +1,7 @@
 package org.example.merisshop.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,10 +20,10 @@ public class Prodotto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long prodottoID;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name="negozio", referencedColumnName = "negozioID")
+    @JoinColumn(name="negozio", referencedColumnName = "id")
     private Negozio negozio;
 
     @Column
@@ -33,7 +35,8 @@ public class Prodotto {
     @Column
     private double prezzo;
 
+    @JsonBackReference
     @ManyToMany(mappedBy = "prodotti")
-    private List<Ordine> ordine;
+    private List<Ordine> ordini;
 
 }

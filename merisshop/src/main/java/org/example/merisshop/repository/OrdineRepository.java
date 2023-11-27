@@ -10,7 +10,5 @@ import java.util.List;
 @Repository
 @Transactional
 public interface OrdineRepository extends JpaRepository<Ordine,Long> {
-    //Long countOrdiniByProdottoID(Long prodottoID);
-
 
 }

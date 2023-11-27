@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/ordine")
 public class OrdineController {
@@ -19,4 +21,6 @@ public class OrdineController {
     public Ordine update(@RequestBody Ordine ordine) {return ordineService.update(ordine);}
     @DeleteMapping(value = "/delete")
     public void delete(@RequestParam Long id) {ordineService.delete(id);}
+    @GetMapping(value = "findAllByProdottiTipologia")
+    public List<Ordine> findAllByProdottiTipologia(@RequestParam String tipologia) {return ordineService.findAllByProdottiTipologia(tipologia);}
 }

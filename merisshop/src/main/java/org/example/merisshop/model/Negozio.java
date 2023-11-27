@@ -16,10 +16,10 @@ public class Negozio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long negozioID;
+    private Long id;
 
     @OneToOne
-    @JoinColumn(name = "proprietario",referencedColumnName = "anagraficaID")
+    @JoinColumn(name = "proprietario",referencedColumnName = "id")
     private Anagrafica proprietario;
 
     @Column
