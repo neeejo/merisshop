@@ -23,4 +23,6 @@ public class OrdineController {
     public void delete(@RequestParam Long id) {ordineService.delete(id);}
     @GetMapping(value = "findAllByProdottiTipologia")
     public List<Ordine> findAllByProdottiTipologia(@RequestParam String tipologia) {return ordineService.findAllByProdottiTipologia(tipologia);}
+    @GetMapping(value = "lowerThen")
+    public List<Ordine> lowerThen(@RequestParam Double amount) {return ordineService.lowerThen(amount);}
 }

@@ -85,4 +85,10 @@ public class OrdineService {
                    .collect(Collectors.toList());
     }
 
+    public List<Ordine> lowerThen(Double amount) {
+        return ordineRepository.findAll().stream()
+                .filter(ordine -> ordine.getTotale() < amount)
+                .collect(Collectors.toList());
+    }
+
 }
