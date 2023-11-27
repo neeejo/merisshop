@@ -3,11 +3,10 @@ package org.example.merisshop.controller;
 import org.example.merisshop.model.Ordine;
 import org.example.merisshop.service.OrdineService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/ordine")
@@ -27,5 +26,5 @@ public class OrdineController {
     @GetMapping(value = "/lowerThen")
     public List<Ordine> lowerThen(@RequestParam Double amount) {return ordineService.lowerThen(amount);}
     @GetMapping(value = "/bestSeller")
-    public HashMap<String, Long> bestSeller() {return ordineService.bestSeller();}
+    public Map.Entry<String, Long> bestSeller() {return ordineService.bestSeller();}
 }

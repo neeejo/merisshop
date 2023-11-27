@@ -1,7 +1,6 @@
 package org.example.merisshop.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,7 +22,7 @@ public class Ordine {
     @Column
     private Long id;
 
-    @JsonManagedReference
+    //@JsonManagedReference
     @ManyToMany
     @JoinTable(name = "ordini-prodotti",
             joinColumns = @JoinColumn(name = "ID Ordine", referencedColumnName = "id"),

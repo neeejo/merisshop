@@ -1,5 +1,6 @@
 package org.example.merisshop.service;
 
+import com.google.protobuf.MapEntry;
 import org.example.merisshop.model.Ordine;
 import org.example.merisshop.model.Prodotto;
 import org.example.merisshop.repository.OrdineRepository;
@@ -9,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.rmi.server.ExportException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -91,7 +89,7 @@ public class OrdineService {
                 .filter(ordine -> ordine.getTotale() < amount)
                 .collect(Collectors.toList());
     }
-    public HashMap<String, Long> bestSeller() {
+    public Map.Entry<String, Long> bestSeller() {
         HashMap<String, Long> sold = new HashMap<>();
         List<Ordine> ordini = ordineRepository.findAll();
         List<Prodotto> prodsInOrdini = new ArrayList<>();
@@ -110,7 +108,9 @@ public class OrdineService {
             }
         }
         System.out.println(sold);
-        // COME PRENDERE IL VALORE PIU' ALTO DALLA MAP
-        return null;
+        Optional<Map.Entry<String, Long>> maxValue = sold.entrySet().stream()
+                .max(Comparator.comparing(Map.Entry::getValue));
+
+        return  maxValue.orElseThrow(()->new RuntimeException("lista vuota"));
     }
 }
