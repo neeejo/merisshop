@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,10 @@ public class OrdineController {
     public Ordine update(@RequestBody Ordine ordine) {return ordineService.update(ordine);}
     @DeleteMapping(value = "/delete")
     public void delete(@RequestParam Long id) {ordineService.delete(id);}
-    @GetMapping(value = "findAllByProdottiTipologia")
+    @GetMapping(value = "/findAllByProdottiTipologia")
     public List<Ordine> findAllByProdottiTipologia(@RequestParam String tipologia) {return ordineService.findAllByProdottiTipologia(tipologia);}
-    @GetMapping(value = "lowerThen")
+    @GetMapping(value = "/lowerThen")
     public List<Ordine> lowerThen(@RequestParam Double amount) {return ordineService.lowerThen(amount);}
+    @GetMapping(value = "/bestSeller")
+    public HashMap<String, Long> bestSeller() {return ordineService.bestSeller();}
 }
