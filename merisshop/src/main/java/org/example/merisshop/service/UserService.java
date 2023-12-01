@@ -20,7 +20,7 @@ public class UserService {
 
     public User findByUsernameAndPassword(String username, String password) {
         return userRepository.findByUsernameAndPassword(username,password)
-                .orElseThrow(()->new RuntimeException("Credenziali errate"));
+                /*.orElseThrow(()->new RuntimeException("Credenziali errate"))*/;
     }
 
 

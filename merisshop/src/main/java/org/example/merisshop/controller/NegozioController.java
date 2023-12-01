@@ -19,4 +19,5 @@ public class NegozioController {
     public Negozio update(@RequestBody Negozio negozio) {return negozioService.update(negozio);}
     @DeleteMapping(value = "/delete")
     public void delete(@RequestParam Long id) {negozioService.delete(id);}
+
 }

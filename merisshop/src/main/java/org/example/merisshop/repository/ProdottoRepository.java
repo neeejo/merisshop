@@ -1,5 +1,6 @@
 package org.example.merisshop.repository;
 
+import org.example.merisshop.model.Negozio;
 import org.example.merisshop.model.Prodotto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

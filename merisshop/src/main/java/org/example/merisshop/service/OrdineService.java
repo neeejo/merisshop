@@ -44,6 +44,8 @@ public class OrdineService {
 
     public void delete(Long id) {ordineRepository.deleteById(id);}
 
+    public List<Ordine> getALl () {return ordineRepository.findAll();}
+
     public List<Ordine> findAllByProdottiTipologia(String tipologia) {
         /*List<Ordine> ordini = ordineRepository.findAll();
         List<Ordine> res = new ArrayList<>();

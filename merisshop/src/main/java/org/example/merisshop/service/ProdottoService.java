@@ -1,5 +1,6 @@
 package org.example.merisshop.service;
 
+import org.example.merisshop.model.Negozio;
 import org.example.merisshop.model.Prodotto;
 import org.example.merisshop.repository.ProdottoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ public class ProdottoService {
         }
         return typeCount;
     }
+
+    public List<Prodotto> getAll() {return prodottoRepository.findAll();}
 
 
 

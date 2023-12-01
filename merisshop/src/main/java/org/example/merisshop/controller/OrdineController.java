@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/ordine")
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrdineController {
     @Autowired
     private OrdineService ordineService;
@@ -22,6 +23,8 @@ public class OrdineController {
     public Ordine update(@RequestBody Ordine ordine) {return ordineService.update(ordine);}
     @DeleteMapping(value = "/delete")
     public void delete(@RequestParam Long id) {ordineService.delete(id);}
+    @GetMapping(value = "/getall")
+    public List<Ordine> getAll() {return ordineService.getALl();}
     @GetMapping(value = "/findAllByProdottiTipologia")
     public List<Ordine> findAllByProdottiTipologia(@RequestParam String tipologia) {return ordineService.findAllByProdottiTipologia(tipologia);}
     @GetMapping(value = "/lowerThen")

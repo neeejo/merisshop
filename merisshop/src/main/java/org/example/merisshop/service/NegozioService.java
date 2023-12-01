@@ -17,4 +17,5 @@ public class NegozioService {
     public Negozio update(Negozio negozio) {return negozioRepository.save(negozio);}
 
     public void delete(Long id) {negozioRepository.deleteById(id);}
+
 }
